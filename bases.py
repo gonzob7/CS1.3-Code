@@ -21,10 +21,10 @@ def decode(digits, base):
     # ...
     sum = 0
     power = 0
+
     for digit in digits[::-1]:
         sum += int(digit, base) * (base ** power)
         power += 1
-
     return sum
 
 # def reverse_list_from_string(string):
@@ -42,6 +42,15 @@ def decode(digits, base):
 #         if digit == hexdigits[i]:
 #             return i
 
+def single_encode_helper(number):
+    base10 = 9
+    if number <= base10:
+        return number
+    if number > base10: # needs to be in a letter
+        letter_index = (number - base10) - 1
+        return string.ascii_lowercase[letter_index]
+
+
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
@@ -52,6 +61,17 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
+
+
+    nextNum = number
+    joined = ""
+
+    while nextNum > 0:
+        remainder = nextNum % base
+        nextNum = nextNum // base
+        joined += str(single_encode_helper(remainder))
+    return joined[::-1]
+
     # TODO: Encode number in binary (base 2)
     # ...
     # TODO: Encode number in hexadecimal (base 16)
@@ -93,7 +113,7 @@ def main():
     # else:
     #     print('Usage: {} digits base1 base2'.format(sys.argv[0]))
     #     print('Converts digits from base1 to base2')
-    print(decode("5JTV5",36))
+    print(encode(182,16))
 
 
 if __name__ == '__main__':
