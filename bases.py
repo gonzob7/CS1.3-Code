@@ -89,6 +89,11 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
+
+
+    base10 = decode(digits, base1)
+    converted = encode(base10, base2)
+    return converted
     # TODO: Convert digits from base 2 to base 16 (and vice versa)
     # ...
     # TODO: Convert digits from base 2 to base 10 (and vice versa)
@@ -113,7 +118,7 @@ def main():
     # else:
     #     print('Usage: {} digits base1 base2'.format(sys.argv[0]))
     #     print('Converts digits from base1 to base2')
-    print(encode(182,16))
+    print(convert('11010101', 16, 10))
 
 
 if __name__ == '__main__':
