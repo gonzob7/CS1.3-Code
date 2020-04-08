@@ -23,45 +23,29 @@ def decode(digits, base):
     converted_base2_digit = 0
     i = 0
     if base == 2:
-        reversed_list = reverse_list_from_string(digits)
-        for i in range(len(reversed_list)):
-            converted_base2_digit = int(reversed_list[i]) * (2**i)
-            sum += converted_base2_digit
-            i += 1
-        return("BASE2:", digits, "BASE10:", sum)
-
+        base10digit = int(digits, 2)
+        return base10digit
     elif base == 16:
-        converted_base10_digit = 0
-        power = 0
-        print("BASE16")
+        base10digit = int(digits, 16)
+        return base10digit
+    else:
+        base10digit = int(digits, base)
+        return base10digit
 
-        for digit in range(len(digits), 0, -1):
-            converted_base10_digit = converted_base10_digit + 16**power* converted_base16_digit(digits[digit-1])
-            power += 1
-        return converted_base10_digit
-        # return("BASE16:", digits, "BASE10:", sum)
+# def reverse_list_from_string(string):
+#     i = len(string)
+#     reversed_list = []
+#     while i > 0:
+#         reversed_list += string[i-1]
+#         i-=1
+#
+#     return(reversed_list)
 
-
-
-    # TODO: Decode digits from hexadecimal (base 16)
-    # ...
-    # TODO: Decode digits from any base (2 up to 36)
-    # ...
-
-def reverse_list_from_string(string):
-    i = len(string)
-    reversed_list = []
-    while i > 0:
-        reversed_list += string[i-1]
-        i-=1
-
-    return(reversed_list)
-
-def converted_base16_digit(digit):
-    hexdigits = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
-    for i in range(len(hexdigits)):
-        if digit == hexdigits[i]:
-            return i
+# def converted_base16_digit(digit):
+#     hexdigits = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+#     for i in range(len(hexdigits)):
+#         if digit == hexdigits[i]:
+#             return i
 
 
 def encode(number, base):
@@ -114,7 +98,7 @@ def main():
     # else:
     #     print('Usage: {} digits base1 base2'.format(sys.argv[0]))
     #     print('Converts digits from base1 to base2')
-    print(decode("b45",16))
+    print(decode("5JTV5",36))
 
 
 if __name__ == '__main__':
