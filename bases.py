@@ -20,17 +20,12 @@ def decode(digits, base):
     # TODO: Decode digits from binary (base 2)
     # ...
     sum = 0
-    converted_base2_digit = 0
-    i = 0
-    if base == 2:
-        base10digit = int(digits, 2)
-        return base10digit
-    elif base == 16:
-        base10digit = int(digits, 16)
-        return base10digit
-    else:
-        base10digit = int(digits, base)
-        return base10digit
+    power = 0
+    for digit in digits[::-1]:
+        sum += int(digit, base) * (base ** power)
+        power += 1
+
+    return sum
 
 # def reverse_list_from_string(string):
 #     i = len(string)
