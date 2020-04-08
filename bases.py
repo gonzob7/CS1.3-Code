@@ -28,11 +28,18 @@ def decode(digits, base):
             converted_base2_digit = int(reversed_list[i]) * (2**i)
             sum += converted_base2_digit
             i += 1
-
-
         return("BASE2:", digits, "BASE10:", sum)
-        # return(reversed_base2)
 
+    elif base == 16:
+        converted_base10_digit = 0
+        power = 0
+        print("BASE16")
+
+        for digit in range(len(digits), 0, -1):
+            converted_base10_digit = converted_base10_digit + 16**power* converted_base16_digit(digits[digit-1])
+            power += 1
+        return converted_base10_digit
+        # return("BASE16:", digits, "BASE10:", sum)
 
 
 
@@ -49,6 +56,13 @@ def reverse_list_from_string(string):
         i-=1
 
     return(reversed_list)
+
+def converted_base16_digit(digit):
+    hexdigits = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+    for i in range(len(hexdigits)):
+        if digit == hexdigits[i]:
+            return i
+
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
@@ -100,7 +114,7 @@ def main():
     # else:
     #     print('Usage: {} digits base1 base2'.format(sys.argv[0]))
     #     print('Converts digits from base1 to base2')
-    print(decode("10001010",2))
+    print(decode("b45",16))
 
 
 if __name__ == '__main__':
