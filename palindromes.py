@@ -13,8 +13,8 @@ def is_palindrome(text):
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_iterative(text)
-    # return is_palindrome_recursive(text)
+    # return is_palindrome_iterative(text)
+    return is_palindrome_recursive(text)
 
 
 def is_palindrome_iterative(text):
@@ -24,14 +24,14 @@ def is_palindrome_iterative(text):
     left_char = 0 #left pointer
 
 
-    if len(text) <= 1: #when length of string is 1 or 0, it will always be a palindrome
+    if len(text) <= 1: #when length of text is 1 or 0, it will always be a palindrome
         return True
 
     while text[left_char].lower() == text[right_char].lower(): #loops as long as characters match
         if left_char + 1 == right_char: #determines if we are in the last two or one character
-            return True
+            return True #is palindrome
         elif left_char + 2 == right_char:
-            return True
+            return True #is palindrome
 
         right_char -= 1
         left_char += 1
@@ -46,15 +46,34 @@ def is_palindrome_iterative(text):
 
 def is_palindrome_recursive(text, left=None, right=None):
     # TODO: implement the is_palindrome function recursively here
-    pass
+
+    converted_text = ""
+
+    if left == None:
+        for char in text.lower(): # keeps only letters in lower case
+            if char in string.ascii_lowercase:
+                converted_text += char
+        text = converted_text
+        left = 0
+        right = len(text) - 1
+
+
+    if len(text) <= 1:
+        return True
+
+    if not text[left] == text[right]: #base case
+        return False
+    if left + 1 == right or left + 2 == right:
+        return True
+
+    return is_palindrome_recursive(text, left+1, right-1)
+
     # once implemented, change is_palindrome to call is_palindrome_recursive
     # to verify that your iterative implementation passes all tests
 
 
 def main():
     import sys
-
-    print(is_palindrome("racecar"))
 
     args = sys.argv[1:]  # Ignore script file name
     if len(args) > 0:
