@@ -205,6 +205,14 @@ class BinarySearchTree(object):
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?"""
         # TODO: Use helper methods and break this algorithm down into 3 cases
+        #call some find method
+
+        if ??: #isleaf
+            pass
+        elif ??: #one child
+            pass
+        else: #two children, get inorder succesor helper
+            pass
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
 
