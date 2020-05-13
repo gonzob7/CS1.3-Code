@@ -32,7 +32,7 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) - Why? [TODO]"""
         # TODO: Push given item
         self.list.prepend(item)
 
@@ -48,7 +48,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) - Why? [TODO]"""
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Empty Stack!")
@@ -77,7 +77,7 @@ class ArrayStack(object):
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
         # TODO: Check if empty
-        if self.list.is_empty():
+        if len(self.list) == 0:
             return True
 
         return False
@@ -89,7 +89,7 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) - Why? [TODO]"""
         # TODO: Insert given item
         self.list.append(item)
 
@@ -97,7 +97,7 @@ class ArrayStack(object):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         # TODO: Return top item, if any
-        if self.list.is_empty():
+        if self.is_empty():
             return None
 
         return self.list[-1] #top of stack is last item in array
@@ -105,9 +105,9 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) - Why? [TODO]"""
         # TODO: Remove and return top item, if any
-        if self.list.is_empty():
+        if self.is_empty():
             raise ValueError("Empty Stack!")
 
         top = self.list[-1]
@@ -116,5 +116,5 @@ class ArrayStack(object):
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
-Stack = LinkedStack
-# Stack = ArrayStack
+#Stack = LinkedStack
+Stack = ArrayStack
