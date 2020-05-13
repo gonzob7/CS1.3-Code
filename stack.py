@@ -32,7 +32,7 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) - Why? [TODO]"""
+        Running time: O(1) - because we always have access to top [TODO]"""
         # TODO: Push given item
         self.list.prepend(item)
 
@@ -48,7 +48,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) - Why? [TODO]"""
+        Running time: O(1) - because we always have access to top [TODO]"""
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Empty Stack!")
@@ -89,7 +89,7 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) - Why? [TODO]"""
+        Running time: O(1) - appending to an array is always constant [TODO]"""
         # TODO: Insert given item
         self.list.append(item)
 
@@ -105,7 +105,7 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) - Why? [TODO]"""
+        Running time: O(1) - last item in an array is always constant [TODO]"""
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Empty Stack!")
@@ -116,5 +116,5 @@ class ArrayStack(object):
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
-#Stack = LinkedStack
-Stack = ArrayStack
+Stack = LinkedStack
+# Stack = ArrayStack
