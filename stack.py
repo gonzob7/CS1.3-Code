@@ -91,17 +91,27 @@ class ArrayStack(object):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Insert given item
+        self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         # TODO: Return top item, if any
+        if self.list.is_empty():
+            return None
+
+        return self.list[-1] #top of stack is last item in array
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return top item, if any
+        if self.list.is_empty():
+            raise ValueError("Empty Stack!")
+
+        top = self.list[-1]
+        self.list.delete(top)
 
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
