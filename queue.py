@@ -41,12 +41,23 @@ class LinkedQueue(object):
         """Return the item at the front of this queue without removing it,
         or None if this queue is empty."""
         # TODO: Return front item, if any
+        if self.list.size == 0:
+            return None
+
+        return self.list.head.data
+
 
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) - because front is always accessible and constant [TODO]"""
         # TODO: Remove and return front item, if any
+        if self.list.size == 0:
+            raise ValueError("Queue Empty!")
+
+        que_front = self.front()
+        self.list.delete(que_front)
+        return que_front
 
 
 # Implement ArrayQueue below, then change the assignment at the bottom
@@ -75,7 +86,7 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) - Why? [TODO]"""
         # TODO: Insert given item
 
     def front(self):
@@ -86,7 +97,7 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) - Why? [TODO]"""
         # TODO: Remove and return front item, if any
 
 
