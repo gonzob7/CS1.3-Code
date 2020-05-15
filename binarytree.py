@@ -16,7 +16,7 @@ class BinaryTreeNode(object):
         """Return True if this node is a leaf (has no children)."""
         # TODO: Check if both left child and right child have no value
 
-        return self.left is None and self.left is None
+        return self.left is None and self.right is None
 
     def is_branch(self):
         """Return True if this node is a branch (has at least one child)."""
@@ -348,7 +348,7 @@ class BinarySearchTree(object):
         # TODO: Create queue to store nodes not yet traversed in level-order
         queue = LinkedQueue()
         # TODO: Enqueue given starting node
-        enqueue(start_node)
+        queue.enqueue(start_node)
         # TODO: Loop until queue is empty
         while not queue.is_empty():
             # TODO: Dequeue node at front of queue
